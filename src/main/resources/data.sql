@@ -1,2 +1,7 @@
-INSERT INTO jewelry (name, color, price, price_new, image) VALUES ('French Pave Diamond Engagement Ring in Platinum (1/4 ct. tw.)', 'Platinum', 175000,131250, FILE_READ('classpath:static/im-1.png'));
-INSERT INTO jewelry (name, color, price, price_new, image) VALUES ('Petite Solitaire Engagement Ring in Platinum', 'White', 89000,66750, FILE_READ('classpath:static/im-2.png'));
+INSERT INTO jewelry (name, color, price, price_new, material_id) VALUES ('French Pave Diamond Engagement Ring in Platinum (1/4 ct. tw.)', 'Platinum', 175000,131250, 1);
+INSERT INTO jewelry (name, color, price, price_new, material_id) VALUES ('Petite Solitaire Engagement Ring in Platinum', 'White', 89000,66750,2);
+
+Insert INTO material (name) values ('Platinum');
+Insert INTO material (name) values ('White');
+Insert INTO material (name) values ('Yellow');
+Insert INTO material (name) values ('Rose');

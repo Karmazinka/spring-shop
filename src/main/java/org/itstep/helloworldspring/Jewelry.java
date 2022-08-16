@@ -21,8 +21,9 @@ public class Jewelry {
     private String color;
     private Double price;
     private Double priceNew;
-    private byte[] image;
-    @OneToMany
-    @JoinColumn(name = "material_id")
-    private Set<Material> materials;
+    //@OneToMany
+    //@JoinColumn(name = "material_id")
+    @OneToOne(cascade = CascadeType.PERSIST)
+    @JoinColumn(name = "material_id", referencedColumnName = "id")
+    private Material material;
 }

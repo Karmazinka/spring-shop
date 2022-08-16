@@ -1,5 +1,6 @@
 package org.itstep.helloworldspring;
 
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -22,7 +23,7 @@ public class JewelryController {
         return jewelryService.findById(id);
     }
 
-    @PostMapping(value="/jewelries")
+    /*@PostMapping(value="/jewelries")
     Jewelry createOrSave(@RequestBody Jewelry jewelry) {
         return
                 jewelryService.save
@@ -43,6 +44,25 @@ public class JewelryController {
                     jewelryService.save
                             (newJewelry);
         });
+    }*/
+    @PostMapping(value="/jewelries")
+    Jewelry createOrSave(@RequestBody Jewelry jewelry) {
+        return
+                jewelryService.save
+                        (jewelry);
+    }
+
+    @PutMapping(value="/jewelries/{id}")
+    Jewelry update(@RequestBody Jewelry newJewelry, @PathVariable Long id) {
+        return jewelryService.findById(id).map(jewelry -> {
+            jewelry.setName(newJewelry.getName());
+            jewelry.setColor(newJewelry.getColor());
+            jewelry.setPrice(newJewelry.getPrice());
+            jewelry.setPriceNew(newJewelry.getPriceNew());
+            return
+                    jewelryService.save
+                            (jewelry);
+        }).orElse(null);
     }
 
     @DeleteMapping(value="/jewelries/{id}")
